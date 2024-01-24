@@ -89,6 +89,7 @@ class ModelConfig:
             self.tokenizer = model_path
 
         self.hf_config = get_config(self.model, trust_remote_code, revision)
+        self.hf_config.max_position_embeddings = max_model_len
         self.dtype = _get_and_verify_dtype(self.hf_config, dtype)
         self.max_model_len = _get_and_verify_max_len(self.hf_config,
                                                      max_model_len)
